@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"github.com/aws/smithy-go"
 	"io/ioutil"
 	"log"
 	"sync"
@@ -280,6 +281,14 @@ func (c *Consumer) getShardIterator(ctx context.Context, streamName, shardID, se
 }
 
 func isRetriableError(err error) bool {
+	var oe *smithy.OperationError
+	if errors.As(err, &oe) {
+		log.Printf("failed to call service: %s, operation: %s, error: %v", oe.Service(), oe.Operation(), oe.Unwrap())
+	}
+	var ae smithy.APIError
+	if errors.As(err, &ae) {
+		log.Printf("code: %s, message: %s, fault: %s", ae.ErrorCode(), ae.ErrorMessage(), ae.ErrorFault().String())
+	}
 	switch err.(type) {
 	case *types.ExpiredIteratorException:
 		return true
