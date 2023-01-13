@@ -1,4 +1,4 @@
-module github.com/harlow/kinesis-consumer
+module github.com/lepek/kinesis-consumer
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.4.1
@@ -11,6 +11,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/feature/dynamodb/attributevalue v1.10.9
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.18.0
 	github.com/aws/aws-sdk-go-v2/service/kinesis v1.17.0
+	github.com/aws/smithy-go v1.13.5
 	github.com/awslabs/kinesis-aggregation/go v0.0.0-20210630091500-54e17340d32f
 	github.com/go-redis/redis/v8 v8.0.0-beta.6
 	github.com/go-sql-driver/mysql v1.5.0
