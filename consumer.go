@@ -14,7 +14,7 @@ import (
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/service/kinesis"
 	"github.com/aws/aws-sdk-go-v2/service/kinesis/types"
-	"github.com/harlow/kinesis-consumer/internal/deaggregator"
+	"github.com/lepek/kinesis-consumer/internal/deaggregator"
 )
 
 // Record wraps the record returned from the Kinesis library and
